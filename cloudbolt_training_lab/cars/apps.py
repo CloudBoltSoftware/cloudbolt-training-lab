@@ -3,7 +3,7 @@ from django.utils.translation import gettext_lazy as _
 
 
 class CarsConfig(AppConfig):
-    name = "cloudbolt_training_lab.cars"
+    name = "cars"
     verbose_name = _("Cars")
 
     def ready(self):

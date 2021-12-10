@@ -31,3 +31,11 @@ Start the app:
 This app is built using Django Cookie Cutter to make use of Django best practices and consistent documentation. 
 
 To extend this app in any manner, consult the django cookie cutter documentation: https://django-cookiecutter.readthedocs.io/en/latest/
+
+## Included apps:
+
+### Cars
+This app exposes three API endpoints for creating cars. 
+- Manufacturer (/cars/api/manufacturer/)
+- Make (/cars/api/ars/)
+- Trim (/cars/api/trim)
