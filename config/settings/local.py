@@ -11,7 +11,7 @@ SECRET_KEY = env(
     default="9pY4RcL6GX6qQtF9zdhyX6704eEam2oMOlm7D4heYppeOvPxCvBG6uuKEoNbNQ30",
 )
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "host.docker.internal"]
+ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "host.docker.internal", "*"]
 
 # CACHES
 # ------------------------------------------------------------------------------
