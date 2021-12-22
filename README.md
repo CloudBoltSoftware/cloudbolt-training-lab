@@ -36,6 +36,6 @@ To extend this app in any manner, consult the django cookie cutter documentation
 
 ### Cars
 This app exposes three API endpoints for creating cars. 
-- Manufacturer (/cars/api/manufacturer/)
-- Make (/cars/api/ars/)
+- Manufacturer (/cars/api/manufacturer)
+- Make (/cars/api/make)
 - Trim (/cars/api/trim)
