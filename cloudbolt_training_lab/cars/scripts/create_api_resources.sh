@@ -16,19 +16,19 @@ cd /opt
 sudo git clone https://github.com/CloudBoltSoftware/cloudbolt-training-lab.git
 
 # Create a virtual environment for the app
-sudo /opt/cloudbolt-training-lab/venv/bin/python -m venv /opt/cloudbolt-training-lab/venv
+sudo python3 -m venv /opt/cloudbolt-training-lab/venv
 
 # Install Requirements
 sudo /opt/cloudbolt-training-lab/venv/bin/python -m pip install --upgrade pip
 sudo /opt/cloudbolt-training-lab/venv/bin/python -m pip install -r /opt/cloudbolt-training-lab/requirements/local.txt
 
 # Set the postgresql database role
-sudo -u postgres psql -c "create role centos;"
-sudo -u postgres psql -c "ALTER ROLE centos WITH LOGIN;"
-sudo -u postgres psql -c "create database cloudbolt_training_lab OWNER centos;"
+sudo -u postgres psql -c "create role root;"
+sudo -u postgres psql -c "ALTER ROLE root WITH LOGIN;"
+sudo -u postgres psql -c "create database cloudbolt_training_lab OWNER root;"
 
 # Migrate the database
-sudo python3 /opt/cloudbolt-training-lab/manage.py migrate
+sudo /opt/cloudbolt-training-lab/venv/bin/python /opt/cloudbolt-training-lab/manage.py migrate
 
 # Install NGINX to forward the port
 sudo dnf install nginx -y
@@ -59,7 +59,7 @@ sudo chmod 777 /etc/systemd/system/runserver.service
 sudo cat << EOF > /etc/systemd/system/runserver.service
 [Unit]
 Description=Run script at startup after network becomes reachable
-After=network.target
+After= network.target postgresql.service
 
 [Service]
 User=centos
