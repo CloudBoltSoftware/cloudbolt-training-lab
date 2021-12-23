@@ -30,16 +30,17 @@ sudo -u postgres psql -c "create database cloudbolt_training_lab;"
 # Migrate the database
 /opt/cloudbolt-training-lab/venv/bin/python /opt/cloudbolt-training-lab/manage.py migrate
 
+
 # Install NGINX to forward the port
 sudo dnf install nginx -y
 sudo systemctl enable nginx
 sudo systemctl start nginx
 sudo touch /etc/nginx/conf.d/cars.conf
 sudo cp /opt/cloudbolt-training-lab/cloudbolt_training_lab/cars/scripts/nginx.conf /etc/nginx/nginx.conf
-sudo nginx -s reload
 
 # Configure NGINX SSL
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/nginx-selfsigned.key -out /etc/nginx/nginx-selfsigned.crt -subj "/C=EN/O=EN/OU=En/CN=*.*"
+sudo nginx -s reload
 
 # Change SElinux settings to allow HTTP
 sudo setsebool -P httpd_can_network_connect 1
