@@ -26,6 +26,11 @@ Start the app:
 
     python manage.py runserver 0.0.0.0:8000
 
+# Deployment
+An accompanying script within the repo, when run on CENTOS8 will deploy the resource into a functional and reachable API server. 
+Relevant files:
+- cloudbolt-training-lab/cloudbolt_training_lab/cars/scripts/create_api_resources.sh
+- cloudbolt-training-lab/cloudbolt_training_lab/cars/scripts/nginx.conf
 
 # Extending the app
 This app is built using Django Cookie Cutter to make use of Django best practices and consistent documentation. 
